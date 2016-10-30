@@ -45,7 +45,7 @@ class Article extends React.Component {
         
         return (
             <div ref='article' className='article' style={{opacity: isShow ? 1 : 0}}>
-                <h2>{article.title}</h2>
+                <h2 data-title={article.comments && `${article.comments.length} comments`} className="showHint">{article.title}</h2>
                 <div>
                     {article.text}
                 </div>

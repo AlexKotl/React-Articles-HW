@@ -1,0 +1,21 @@
+{
+  "name": "react-boilerplate",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Alexander Kotliarov <slicer256@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/bcherepakha/react-starter-kit",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "tipsy": "^0.1.7",
+    "jquery": "^3.1.1"
+  }
+}

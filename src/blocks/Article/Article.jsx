@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './../Comment/Comment.jsx';
 
 /**
  * Article
@@ -12,7 +13,7 @@ class Article extends React.Component {
     }
 
     state = {
-        isShow: false,
+        isShow: true,
         showArticle: ::this.showArticle
     }
 
@@ -31,26 +32,17 @@ class Article extends React.Component {
     }
 
     componentDidMount () {
-        window.addEventListener('scroll', this.state.showArticle);
+        //window.addEventListener('scroll', this.state.showArticle);
     }
 
     componentWillUnmount () {
-        window.removeEventListener('scroll', this.state.showArticle);
-    }
-
-    renderComment (comment) {
-        return (
-            <div key={comment.id} className='comment'>
-                <div>{`${comment.name.first} ${comment.name.last}`}</div>
-                {comment.text}
-            </div>
-        );
+        //window.removeEventListener('scroll', this.state.showArticle);
     }
 
     render () {
         var {article, toggleComments, showComments} = this.props,
             {isShow} = this.state;
-
+        
         return (
             <div ref='article' className='article' style={{opacity: isShow ? 1 : 0}}>
                 <h2>{article.title}</h2>
@@ -63,7 +55,7 @@ class Article extends React.Component {
                     </div>
                     <div className='comments-list' style={{display: showComments ? 'block' : 'none'}}>
                         {article.comments && article.comments.map(
-                            comment => this.renderComment(comment)
+                            comment => <Comment key={comment.id} {...comment} />
                         )}
                     </div>
                 </div>

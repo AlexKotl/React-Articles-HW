@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from './../Comment/Comment.jsx';
+import CommentForm from './../CommentForm/CommentForm.jsx';
 
 /**
  * Article
@@ -57,7 +58,12 @@ class Article extends React.Component {
                         {article.comments && article.comments.map(
                             comment => <Comment key={comment.id} {...comment} />
                         )}
+
+                        <CommentForm />
+                        
                     </div>
+
+
                 </div>
             </div>
         );

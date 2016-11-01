@@ -9,6 +9,7 @@ class ArticlesList extends React.Component {
 
     state = {
         indexOpenArticle: null,
+        lastCommentId: 1,
         articles: articles_data
     }
 
@@ -16,11 +17,16 @@ class ArticlesList extends React.Component {
         this.setState(this.state.articles.map(article => {
             if (article.id === this.state.indexOpenArticle) {
                 article.comments.push({
+                    id: "comment" + this.state.lastCommentId,
                     name: {
                         first: item.name || '',
                         last: ''
                     },
                     text: item.comment || ''
+                });
+
+                this.setState({
+                    lastCommentId: this.state.lastCommentId + 1
                 });
             }
 

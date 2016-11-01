@@ -14,6 +14,12 @@ class ArticlesList extends React.Component {
     }
 
     _addComment(item) {
+        // some validation
+        if (item.comment == '') {
+            alert('Please enter comment first.');
+            return;
+        }
+
         this.setState(this.state.articles.map(article => {
             if (article.id === this.state.indexOpenArticle) {
                 article.comments.push({

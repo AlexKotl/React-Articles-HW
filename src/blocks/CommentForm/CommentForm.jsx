@@ -3,8 +3,8 @@ import React from 'react';
 export default class CommentForm extends React.Component {
 
     state: {
-        name: '',
-        comment: ''
+        name: "",
+        comment: ""
     }
 
     _handleChange(event) {
@@ -13,14 +13,12 @@ export default class CommentForm extends React.Component {
         this.setState({
             [name]: value
         });
-
-        console.log(this.state);
+        
     }
 
     _addComment() {
-        alert('adding comment');
-
         window.ee.emit('Comment.add', this.state);
+        console.log('triggered event Comment.add sending', this.state );
     }
 
     render() {

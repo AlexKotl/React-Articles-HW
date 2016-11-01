@@ -6,7 +6,7 @@ import Article from 'blocks/Article/Article.jsx';
  */
 class ArticlesList extends React.Component {
 
-    articles = [
+    articles_data = [
     {
       "id": "581484f08682751007278f05",
       "isRead": true,
@@ -574,8 +574,12 @@ class ArticlesList extends React.Component {
   ];
 
     state = {
-        indexOpenArticle: null
-        //articles: articles
+        indexOpenArticle: null,
+        articles: this.articles_data
+    }
+
+    _addComment(item) {
+
     }
 
     toggleComments (articleId) {
@@ -592,13 +596,21 @@ class ArticlesList extends React.Component {
         });
     }
 
+    componentDidMount() {
+         window.ee.addListener("Comment.add", ::this._addComment);
+    }
+
+    componentWillUnmount() {
+        window.ee.removeListener('Comment.add');
+    }
+
     render () {
         var {indexOpenArticle} = this.state;
 
         return (
             <div className='articles'>
-                <div>Articles: {this.articles.length}</div>
-                {this.articles.map(
+                <div>Articles: {this.state.articles.length}</div>
+                {this.state.articles.map(
                     article => <Article
                     key={article.id}
                     article={article}

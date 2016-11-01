@@ -600,11 +600,11 @@ class ArticlesList extends React.Component {
                 <div>Articles: {this.articles.length}</div>
                 {this.articles.map(
                     article => <Article
-                                    key={article.id}
-                                    article={article}
-                                    showComments={indexOpenArticle === article.id}
-                                    toggleComments={this.toggleComments.bind(this, article.id)}
-                                    />)}
+                    key={article.id}
+                    article={article}
+                    showComments={indexOpenArticle === article.id}
+                    toggleComments={this.toggleComments.bind(this, article.id)}
+                    />)}
             </div>
         );
     }

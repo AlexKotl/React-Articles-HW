@@ -13,7 +13,19 @@ class ArticlesList extends React.Component {
     }
 
     _addComment(item) {
+        this.setState(this.state.articles.map(article => {
+            if (article.id === this.state.indexOpenArticle) {
+                article.comments.push({
+                    name: {
+                        first: item.name || '',
+                        last: ''
+                    },
+                    text: item.comment || ''
+                });
+            }
 
+            return article;
+        }))
     }
 
     toggleComments (articleId) {

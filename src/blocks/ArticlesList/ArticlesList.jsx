@@ -7,8 +7,6 @@ import articles_data from "./../../static/data.js";
  */
 class ArticlesList extends React.Component {
 
-
-
     state = {
         indexOpenArticle: null,
         articles: articles_data
@@ -33,7 +31,7 @@ class ArticlesList extends React.Component {
     }
 
     componentDidMount() {
-         window.ee.addListener("Comment.add", ::this._addComment);
+        window.ee.addListener("Comment.add", ::this._addComment);
     }
 
     componentWillUnmount() {
@@ -48,10 +46,10 @@ class ArticlesList extends React.Component {
                 <div>Articles: {this.state.articles.length}</div>
                 {this.state.articles.map(
                     article => <Article
-                    key={article.id}
-                    article={article}
-                    showComments={indexOpenArticle === article.id}
-                    toggleComments={this.toggleComments.bind(this, article.id)}
+                        key={article.id}
+                        article={article}
+                        showComments={indexOpenArticle === article.id}
+                        toggleComments={this.toggleComments.bind(this, article.id)}
                     />)}
             </div>
         );

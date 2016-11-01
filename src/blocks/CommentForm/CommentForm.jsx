@@ -2,9 +2,9 @@ import React from 'react';
 
 export default class CommentForm extends React.Component {
 
-    state: {
-        name: "",
-        comment: ""
+    state = {
+        name: '',
+        comment: ''
     }
 
     _handleChange(event) {
